@@ -1,0 +1,14 @@
+name: cvelist
+summary: Parses cvelist JSON
+description: A Ruby library for parsing the cvelist repository.
+license: MIT
+authors: Postmodern
+email: postmodern.mod3@gmail.com
+homepage: https://github.com/postmodern/cvelist.rb#readme
+
+dependencies:
+  multi_json: ~> 1.0
+  cve_schema: ~> 0.1
+
+development_dependencies:
+  bundler: ~> 2.0
