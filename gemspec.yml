@@ -7,6 +7,12 @@ authors: Postmodern
 email: postmodern.mod3@gmail.com
 homepage: https://github.com/postmodern/cvelist.rb#readme
 
+metadata:
+  documentation_uri: https://rubydoc.info/gems/cvelist
+  source_code_uri:   https://github.com/postmodern/cvelist.rb
+  bug_tracker_uri:   https://github.com/postmodern/cvelist.rb/issues
+  changelog_uri:     https://github.com/postmodern/cvelist.rb/blob/main/ChangeLog.md
+
 dependencies:
   multi_json: ~> 1.0
   cve_schema: ~> 0.1
