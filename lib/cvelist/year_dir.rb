@@ -32,7 +32,7 @@ module CVEList
     #
     # Access a range directory within the year directory.
     #
-    # @param [String] range
+    # @param [String] xxx_range
     #   The "xxx" range.
     #
     # @return [RangeDir]
