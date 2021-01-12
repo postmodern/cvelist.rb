@@ -7,7 +7,7 @@
 
 ## Description
 
-A Ruby library for parsing the [cvelist] JSON repository.
+A Ruby library for parsing the CVE JSON in the [cvelist] git repository.
 
 ## Features
 
