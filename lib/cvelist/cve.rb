@@ -16,9 +16,29 @@ module CVEList
     #   The path to the CVE JSON.
     #
     def initialize(path, **kwargs)
-      super(kwargs)
+      super(**kwargs)
 
       @path = path
+    end
+
+    #
+    # Parses the given JSON.
+    #
+    # @param [String] json
+    #   The raw JSON.
+    #
+    # @return [Hash{String => Object}]
+    #   The parsed JSON.
+    #
+    # @raise [InvalidJSON]
+    #   Could not parse the JSON in the given file.
+    #
+    # @api semipublic
+    #
+    def self.parse(json)
+      MultiJson.load(json)
+    rescue MultiJson::ParseError => error
+      raise(InvalidJSON,error.message)
     end
 
     #
@@ -35,10 +55,8 @@ module CVEList
     #
     # @api semipublic
     #
-    def self.parse(file)
-      MultiJson.load(File.read(file))
-    rescue MultiJson::ParseError => error
-      raise(InvalidJSON,error.message)
+    def self.read(file)
+      parse(File.read(file))
     end
 
     #
@@ -54,7 +72,7 @@ module CVEList
     #   Failed to load the CVE JSON.
     #
     def self.load(file)
-      new(path: file, **from_json(parse(file)))
+      new(file, **from_json(read(file)))
     end
 
   end
