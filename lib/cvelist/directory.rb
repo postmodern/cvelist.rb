@@ -22,6 +22,8 @@ module CVEList
     #
     # Joins the file/directory name with the directory path.
     #
+    # @param [String] name
+    #
     # @return [String]
     #
     def join(name)
@@ -31,6 +33,8 @@ module CVEList
     #
     # Determines whether the directory has the givne file.
     #
+    # @param [String] name
+    #
     # @return [Boolean]
     #
     def file?(name)
@@ -39,6 +43,8 @@ module CVEList
 
     #
     # Determines whether the directory has the given directory.
+    #
+    # @param [String] name
     #
     # @return [Boolean]
     #
