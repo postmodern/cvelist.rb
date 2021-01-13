@@ -31,6 +31,10 @@ module CVEList
       return new(path)
     end
 
+    class << self
+      alias download clone
+    end
+
     #
     # Determines whether the repository is a git repository.
     #
@@ -74,6 +78,8 @@ module CVEList
 
       return true
     end
+
+    alias update! pull!
 
     #
     # Determines if the repository contains a directory for the given year.
