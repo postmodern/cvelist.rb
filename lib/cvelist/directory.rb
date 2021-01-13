@@ -56,7 +56,7 @@ module CVEList
     #   The matching file and directory paths.
     #
     def glob(pattern)
-      Dir[join(@path,pattern)]
+      Dir[join(pattern)]
     end
 
     #
