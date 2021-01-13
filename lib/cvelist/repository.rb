@@ -163,8 +163,8 @@ module CVEList
     # @return [Enumerator]
     #   If no block is given, an Enumerator will be returned.
     #
-    def each
-      return enum_for(__method__)
+    def each(&block)
+      return enum_for(__method__) unless block_given?
 
       years do |year_dir|
         year_dir.each(&block)
@@ -184,7 +184,7 @@ module CVEList
     # @return [Enumerator]
     #   If no block is given, an Enumerator will be returned.
     #
-    def each_malformed
+    def each_malformed(&block)
       return enum_for(__method__) unless block_given?
 
       years do |year_dir|

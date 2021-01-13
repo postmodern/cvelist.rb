@@ -109,7 +109,7 @@ module CVEList
     # @return [Enumerator]
     #   If no block is given, an Enumerator will be returned.
     #
-    def each
+    def each(&block)
       return enum_for(__method__) unless block_given?
 
       ranges do |range_dir|
@@ -130,7 +130,7 @@ module CVEList
     # @return [Enumerator]
     #   If no block is given, an Enumerator will be returned.
     #
-    def each_malformed
+    def each_malformed(&block)
       return enum_for(__method__) unless block_given?
 
       ranges do |range_dir|
