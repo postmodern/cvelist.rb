@@ -228,7 +228,7 @@ module CVEList
     private
 
     def cve_to_year(cve_id)
-      cve_id[cve_id.lindex('-')+1 .. cve_id.rindex('-')-1]
+      cve_id[cve_id.index('-')+1 .. cve_id.rindex('-')-1]
     end
 
   end
