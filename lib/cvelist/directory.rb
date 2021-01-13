@@ -16,7 +16,7 @@ module CVEList
     #   The path to the directory.
     #
     def initialize(path)
-      @path = path
+      @path = File.expand_path(path)
     end
 
     #
