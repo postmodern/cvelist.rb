@@ -11,11 +11,11 @@ module CVEList
     #
     # Clones a new repository.
     #
-    # @param [#to_s] url
-    #   The URL for the cvelist repository.
-    #
     # @param [#to_s] path
     #   The path to where the cvelist repository will be cloned to.
+    #
+    # @param [#to_s] url
+    #   The URL for the cvelist repository.
     #
     # @param [#to_s] depth
     #   The depth of the git clone.
@@ -23,7 +23,7 @@ module CVEList
     # @raise [CloneFailedError]
     #   The `git clone` command failed.
     #
-    def self.clone(url: URL, path: , depth: 1)
+    def self.clone(path, url: URL, depth: 1)
       unless system 'git', 'clone', '--depth', depth.to_s, url.to_s, path.to_s
         raise(ClonedFailedError,"failed to clone #{url.inspect} into #{path.inspect}")
       end
