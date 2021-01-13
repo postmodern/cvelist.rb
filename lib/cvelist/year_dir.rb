@@ -162,7 +162,7 @@ module CVEList
 
     private
 
-    def cve_to_xxx_range(cve_number)
+    def cve_to_xxx_range(cve_id)
       cve_number = cve_id[cve_id.rindex('-')+1 ..]
       cve_number[-3,3] = 'xxx'
 
