@@ -5,6 +5,8 @@ require 'cvelist/year_dir'
 module CVEList
   class Repository < Directory
 
+    include Enumerable
+
     # The default git URI for the cvelist repository
     URL = 'https://github.com/CVEProject/cvelist.git'.freeze
 
