@@ -44,21 +44,17 @@ module CVEList
     # @param [String] cve_id
     #   The CVE ID.
     #
-    # @return [CVE]
-    #   The loaded CVE.
-    #
-    # @raise [CVENotFound]
-    #   The CVE could not be found in the range directory.
+    # @return [CVE, nil]
+    #   The loaded CVE of `nil` if the CVE could not be found within the range
+    #   directory.
     #
     def [](cve_id)
       cve_file = "#{cve_id}.json"
       cve_path = join(cve_file)
 
-      unless File.file?(cve_path)
-        raise(CVENotFound,"#{cve_file.inspect} not found within #{@path.inspect}")
+      if File.file?(cve_path)
+        CVE.load(cve_path)
       end
-
-      return CVE.load(cve_path)
     end
 
     #
