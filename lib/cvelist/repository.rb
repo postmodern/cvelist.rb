@@ -25,7 +25,7 @@ module CVEList
     #
     def self.clone(path, url: URL, depth: 1)
       unless system 'git', 'clone', '--depth', depth.to_s, url.to_s, path.to_s
-        raise(ClonedFailedError,"failed to clone #{url.inspect} into #{path.inspect}")
+        raise(CloneFailedError,"failed to clone #{url.inspect} into #{path.inspect}")
       end
 
       return new(path)
