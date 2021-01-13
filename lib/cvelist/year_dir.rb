@@ -30,6 +30,18 @@ module CVEList
     end
 
     #
+    # Determines if the year directory contains the given range directory.
+    #
+    # @param [String] xxx_range
+    #   The given range directory ending in `xxx`.
+    #
+    # @return [Boolean]
+    #
+    def has_range?(xxx_range)
+      directory?(xxx_range)
+    end
+
+    #
     # Access a range directory within the year directory.
     #
     # @param [String] xxx_range
@@ -148,16 +160,16 @@ module CVEList
     # @param [String] cve_id
     #   The CVE ID.
     #
-    # @return [CVE]
-    #   The loaded CVE.
-    #
-    # @raise [CVENotFound]
-    #   The CVE could not be found in the range directory.
+    # @return [CVE, nil]
+    #   The loaded CVE or `nil` if the accompaning range directory for the CVE
+    #   could not be found.
     #
     def [](cve_id)
       xxx_range = cve_to_xxx_range(cve_id)
 
-      range(xxx_range)[cve_id]
+      if has_range?(xxx_range)
+        range(xxx_range)[cve_id]
+      end
     end
 
     private
