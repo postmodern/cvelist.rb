@@ -141,7 +141,7 @@ module CVEList
       year_dir = join(year_number)
 
       unless File.directory?(year_dir)
-        raise(YearNotFound,"year #{year_number.inspect} not found within #{@path.inspect}")
+        raise(YearDirNotFound,"year #{year_number.inspect} not found within #{@path.inspect}")
       end
 
       return YearDir.new(year_dir)
