@@ -25,7 +25,7 @@ module CVEList
     #
     def self.clone(path, url: URL, depth: 1)
       unless system 'git', 'clone', '--depth', depth.to_s, url.to_s, path.to_s
-        raise(CloneFailedError,"failed to clone #{url.inspect} into #{path.inspect}")
+        raise(GitCloneFailed,"failed to clone #{url.inspect} into #{path.inspect}")
       end
 
       return new(path)
@@ -72,7 +72,7 @@ module CVEList
 
       Dir.chdir(@path) do
         unless system('git', 'pull', remote.to_s, branch.to_s)
-          raise(PullFailedError,"failed to pull from remote #{remote.inspect} branch #{branch.inspect}")
+          raise(GitPullFailed,"failed to pull from remote #{remote.inspect} branch #{branch.inspect}")
         end
       end
 

@@ -4,11 +4,11 @@ module CVEList
   end
 
   # Raised when a `git clone` failed.
-  class CloneFailedError < GitError
+  class GitCloneFailed < GitError
   end
 
   # Raised when a `git pull` failed.
-  class PullFailedError < GitError
+  class GitPullFailed < GitError
   end
 
   class NotFoundError < RuntimeError
