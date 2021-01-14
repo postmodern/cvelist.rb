@@ -183,11 +183,11 @@ describe Repository do
   describe "#directories" do
     subject { super().directories }
 
-    it "must return all year directories" do
+    it "must return paths to all year directories" do
       expect(subject).to match_array(dir_paths)
     end
 
-    it "must sort the directories" do
+    it "must sort the year directories" do
       expect(subject).to eq(sorted_dir_paths)
     end
   end
@@ -224,8 +224,29 @@ describe Repository do
     end
   end
 
+  it { expect(described_class).to include(Enumerable) }
+
   describe "#each" do
-    let(:cve_paths) { Dir[File.join(path,'**/**/CVE-*.json')] }
+    let(:cve_paths) { Dir[File.join(path,'*/*/CVE-*.json')] }
+
+    context "when a block is given" do
+      it "must yield CVE objects "do
+        results = []
+        subject.each { |cve| results << cve }
+
+        expect(results).to all(be_kind_of(CVE))
+      end
+    end
+
+    context "when no block is given" do
+      it "must return an Enumerator object" do
+        expect(subject.each).to be_kind_of(Enumerator)
+      end
+    end
+
+    it "must load CVE objects from the CVE-*.json files in the repository" do
+      expect(subject.each.map(&:path)).to match_array(cve_paths)
+    end
   end
 
   describe "#each_malformed" do
