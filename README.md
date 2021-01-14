@@ -1,4 +1,4 @@
-# cvelist.rb
+# cvelist
 
 * [Homepage](https://github.com/postmodern/cvelist.rb#readme)
 * [Issues](https://github.com/postmodern/cvelist.rb/issues)
