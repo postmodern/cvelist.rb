@@ -114,22 +114,11 @@ module CVEList
     #
     # The year directories contained within the repository.
     #
-    # @yield [year_dir]
-    #   If a block is given, it will be passed each year directory.
-    #
-    # @yieldparam [YearDir] year_dir
-    #   A year directory within the repository.
-    #
     # @return [Array<YearDir>]
     #   The year directories within the repository.
     #
     def years(&block)
-      year_dirs = directories.map do |dir|
-        YearDir.new(dir)
-      end
-
-      year_dirs.each(&block) if block
-      return year_dirs
+      directories.map { |dir| YearDir.new(dir) }
     end
 
     #
@@ -171,7 +160,7 @@ module CVEList
     def each(&block)
       return enum_for(__method__) unless block_given?
 
-      years do |year_dir|
+      years.each do |year_dir|
         year_dir.each(&block)
       end
     end
@@ -192,7 +181,7 @@ module CVEList
     def each_malformed(&block)
       return enum_for(__method__) unless block_given?
 
-      years do |year_dir|
+      years.each do |year_dir|
         year_dir.each_malformed(&block)
       end
     end

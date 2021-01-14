@@ -80,25 +80,13 @@ module CVEList
     end
 
     #
-    # Enumerates over the range directories within the year directory.
-    #
-    # @yield [range_dir]
-    #   The given block will be passed each range directory from within the
-    #   year directory.
-    #
-    # @yieldparam [Rangedir] range_dir
-    #   A range directory.
+    # The range directories within the year directory.
     #
     # @return [Enumerator]
     #   If no block is given, an Enumerator will be returned.
     #
     def ranges(&block)
-      range_dirs = directories.map do |dir|
-        RangeDir.new(dir)
-      end
-
-      range_dirs.each(&block) if block
-      return range_dirs
+      directories.map { |dir| RangeDir.new(dir) }
     end
 
     #
@@ -117,7 +105,7 @@ module CVEList
     def each(&block)
       return enum_for(__method__) unless block_given?
 
-      ranges do |range_dir|
+      ranges.each do |range_dir|
         range_dir.each(&block)
       end
     end
@@ -138,7 +126,7 @@ module CVEList
     def each_malformed(&block)
       return enum_for(__method__) unless block_given?
 
-      ranges do |range_dir|
+      ranges.each do |range_dir|
         range_dir.each_malformed(&block)
       end
     end
