@@ -20,7 +20,7 @@ A Ruby library for parsing the CVE JSON in the [cvelist] git repository.
 
 Cloning the [cvelist] repository:
 
-    repo = CVEList::Repository.clone
+    repo = CVEList::Repository.clone('path/to/cvelist')
 
 Using an existing [cvelist] repository:
 
