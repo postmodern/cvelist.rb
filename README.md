@@ -12,7 +12,7 @@ A Ruby library for parsing the CVE JSON in the [cvelist] git repository.
 ## Features
 
 * Supports downloading/updating [cvelist] Git repository.
-* Supports [CVE JSON Schema v4.0][1]
+* Supports [CVE JSON Schema v4.0][1].
 
 ## Examples
 
