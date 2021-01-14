@@ -30,6 +30,10 @@ Updating an existing [cvelist] repository:
 
     repo.pull!
 
+Get the total number of CVEs in the repository:
+
+    repo.size
+
 Access an individual [CVE] in the repository:
 
     repo['CVE-2020-0001']
