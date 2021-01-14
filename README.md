@@ -55,6 +55,14 @@ Enumerating over every [CVE] in a certain year:
 
     $ gem install cvelist
 
+## Benchmark
+
+    Warming up the disk cache with a first run. This may take a while ...
+    Parsing all 192879 CVE .json files ...
+    
+    Total:	 18.285097   1.651155  19.936252 ( 20.144566)
+    Avg:	  0.000095   0.000009   0.000103 (  0.000104)
+
 ## Copyright
 
 Copyright (c) 2020-2021 Hal Brodigan
