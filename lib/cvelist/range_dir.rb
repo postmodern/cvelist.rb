@@ -108,11 +108,11 @@ module CVEList
     def each_malformed
       return enum_for(__method__) unless block_given?
 
-      files.each do |cve_file|
+      files.each do |cve_path|
         begin
           CVE.load(cve_path)
         rescue CVE::InvalidJSON => error
-          yield MalformedCVE.new(cve_file,error)
+          yield MalformedCVE.new(cve_path,error)
         end
       end
     end
