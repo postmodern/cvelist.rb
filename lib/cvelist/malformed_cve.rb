@@ -2,7 +2,7 @@ module CVEList
   #
   # Represents malformed/invalid CVE JSON that could not be loaded.
   #
-  class MalformedJSON
+  class MalformedCVE
 
     # Path to the JSON file.
     #

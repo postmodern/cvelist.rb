@@ -3,7 +3,7 @@
 require 'cvelist/directory'
 require 'cvelist/exceptions'
 require 'cvelist/cve'
-require 'cvelist/malformed_json'
+require 'cvelist/malformed_cve'
 
 module CVEList
   class RangeDir < Directory
@@ -100,7 +100,7 @@ module CVEList
     # @yield [malformed]
     #   The given block will be passed each malformed 
     #
-    # @yieldparam [MalformedJSON] malformed
+    # @yieldparam [MalformedCVE] malformed
     #
     # @return [Enumerator]
     #   If no block is given, an Enumerator object will be returned.
@@ -112,7 +112,7 @@ module CVEList
         begin
           CVE.load(cve_path)
         rescue CVE::InvalidJSON => error
-          yield MalformedJSON.new(cve_file,error)
+          yield MalformedCVE.new(cve_file,error)
         end
       end
     end
