@@ -29,6 +29,14 @@ describe Directory do
     it "must join the path with the directory's #path" do
       expect(subject.join(name)).to eq(File.join(path,name))
     end
+
+    context "when given multiple arguments" do
+      let(:names) { %w[foo bar baz] }
+
+      it "must join all arguments together with the directory's #path" do
+        expect(subject.join(*names)).to eq(File.join(path,*names))
+      end
+    end
   end
 
   describe "#file?" do

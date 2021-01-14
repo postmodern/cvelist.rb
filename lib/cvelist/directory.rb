@@ -20,14 +20,15 @@ module CVEList
     end
 
     #
-    # Joins the file/directory name with the directory path.
+    # Joins the file/directory name(s) with the directory path.
     #
-    # @param [String] name
+    # @param [Array<String>] names
+    #   The file/directory name(s).
     #
     # @return [String]
     #
-    def join(name)
-      File.join(@path,name)
+    def join(*names)
+      File.join(@path,*names)
     end
 
     #
