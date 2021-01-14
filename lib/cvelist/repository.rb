@@ -226,11 +226,9 @@ module CVEList
     #
     # @return [Integer]
     #
-    def total_cves
+    def size
       Dir[join(GLOB,YearDir::GLOB,RangeDir::GLOB)].length
     end
-
-    alias size total_cves
 
     private
 

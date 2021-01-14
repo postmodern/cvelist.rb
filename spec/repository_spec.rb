@@ -234,9 +234,9 @@ describe Repository do
 
   include_examples "CVE methods"
 
-  describe "#total_cves" do
+  describe "#size" do
     it "must match the total number of CVE .json files in the repository" do
-      expect(subject.total_cves).to eq(
+      expect(subject.size).to eq(
         subject.years.reduce(0) { |i,year|
           i + year.ranges.reduce(0) { |j,range|
             j + range.files.length
