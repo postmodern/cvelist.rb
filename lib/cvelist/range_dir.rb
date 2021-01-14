@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cvelist/directory'
 require 'cvelist/exceptions'
 require 'cvelist/cve'

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 require 'cvelist/directory'
 require 'cvelist/exceptions'
 require 'cvelist/year_dir'
@@ -8,7 +10,7 @@ module CVEList
     include Enumerable
 
     # The default git URI for the cvelist repository
-    URL = 'https://github.com/CVEProject/cvelist.git'.freeze
+    URL = 'https://github.com/CVEProject/cvelist.git'
 
     #
     # Clones a new repository.
@@ -48,10 +50,10 @@ module CVEList
     end
 
     # The default git remote.
-    REMOTE = 'origin'.freeze
+    REMOTE = 'origin'
 
     # The default git branch.
-    BRANCH = 'master'.freeze
+    BRANCH = 'master'
 
     #
     # Pulls down new commits from the given remote/branch.
