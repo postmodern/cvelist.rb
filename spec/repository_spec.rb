@@ -233,4 +233,16 @@ describe Repository do
   it { expect(described_class).to include(Enumerable) }
 
   include_examples "CVE methods"
+
+  describe "#total_cves" do
+    it "must match the total number of CVE .json files in the repository" do
+      expect(subject.total_cves).to eq(
+        subject.years.reduce(0) { |i,year|
+          i + year.ranges.reduce(0) { |j,range|
+            j + range.files.length
+          }
+        }
+      )
+    end
+  end
 end

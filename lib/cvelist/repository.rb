@@ -221,6 +221,17 @@ module CVEList
       end
     end
 
+    #
+    # Calculates the total number of CVEs in the repository.
+    #
+    # @return [Integer]
+    #
+    def total_cves
+      Dir[join(GLOB,YearDir::GLOB,RangeDir::GLOB)].length
+    end
+
+    alias size total_cves
+
     private
 
     def cve_to_year(cve_id)
