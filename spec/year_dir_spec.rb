@@ -66,12 +66,18 @@ describe YearDir do
   end
 
   describe "#directories" do
+    subject { super().directories }
+
+    it "must find all '*xxx' range directories" do
+      expect(subject).to all(be =~ /\/\d+xxx$/)
+    end
+
     it "must return the paths to '*xxx' range directories within the year directory" do
-      expect(subject.directories).to match_array(xxx_range_paths)
+      expect(subject).to match_array(xxx_range_paths)
     end
 
     it "must sort the '*xxx' range directories" do
-      expect(subject.directories).to eq(sorted_xxx_range_paths)
+      expect(subject).to eq(sorted_xxx_range_paths)
     end
   end
 

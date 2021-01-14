@@ -185,7 +185,11 @@ describe Repository do
   describe "#directories" do
     subject { super().directories }
 
-    it "must return paths to all year directories" do
+    it "must find all year directories" do
+      expect(subject).to all(be =~ /\/[1-2][0-9]{3}$/)
+    end
+
+    it "must return paths to all year directories within the repository" do
       expect(subject).to match_array(dir_paths)
     end
 

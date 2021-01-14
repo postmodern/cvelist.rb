@@ -36,6 +36,10 @@ CVE-2021-2002.json  CVE-2021-2005.json  CVE-2021-2008.json
   end
 
   describe "#files" do
+    it "must find all CVE-*.json files" do
+      expect(subject.files).to all(be =~ /\/CVE-\d{4}-\d{4}\.json$/)
+    end
+
     it "must return the paths to 'CVE-*.json' files within the range directory" do
       expect(subject.files).to match_array(cve_paths)
     end
