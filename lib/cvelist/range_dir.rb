@@ -89,7 +89,7 @@ module CVEList
       files.each do |cve_path|
         begin
           yield CVE.load(cve_path)
-        rescue CVE::InvalidJSON
+        rescue InvalidJSON
         end
       end
     end

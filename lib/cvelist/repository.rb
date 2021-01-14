@@ -210,7 +210,7 @@ module CVEList
     #   The CVE with the given ID. If no CVE with the given ID could be found,
     #   `nil` will be returned.
     #
-    # @raise [CVE::InvalidJSON, CVE::MissingJSONKey, CVE::UnknownJSONValue]
+    # @raise [InvalidJSON, MissingJSONKey, UnknownJSONValue]
     #   The CVE's JSON is invalid or malformed.
     #
     def [](cve_id)
