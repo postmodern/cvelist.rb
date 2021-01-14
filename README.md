@@ -30,7 +30,11 @@ Updating an existing [cvelist] repository:
 
     repo.pull!
 
-Enumerating over every [CVE] in a repository:
+Access an individual [CVE] in the repository:
+
+    repo['CVE-2020-0001']
+
+Enumerating over every [CVE] in the repository:
 
     repo.each do |cve|
       puts cve.id
