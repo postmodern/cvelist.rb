@@ -18,14 +18,16 @@ describe RangeDir do
     end
   end
 
-  let(:cve_files) do
+  let(:valid_cve_files) do
     %w[
 CVE-2021-2000.json  CVE-2021-2003.json  CVE-2021-2006.json  CVE-2021-2009.json
 CVE-2021-2001.json  CVE-2021-2004.json  CVE-2021-2007.json
 CVE-2021-2002.json  CVE-2021-2005.json  CVE-2021-2008.json
     ]
   end
+  let(:malformed_cve_files) { %w[CVE-2021-2998.json  CVE-2021-2999.json] }
 
+  let(:cve_files) { valid_cve_files + malformed_cve_files }
   let(:cve_paths) do
     cve_files.map { |file| File.join(path,file) }
   end

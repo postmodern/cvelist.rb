@@ -2,7 +2,13 @@ require 'spec_helper'
 
 RSpec.shared_examples "CVE methods" do
   describe "#each" do
+    let(:malformed_cves) { %w[CVE-2021-2999.json CVE-2021-2998.json] }
+    let(:malformed_cve_paths) do
+      Dir[File.join(path,"{**/}{#{malformed_cves.join(',')}}")]
+    end
+
     let(:cve_paths) { Dir[File.join(path,'{**/}CVE-*.json')] }
+    let(:valid_cve_paths) { cve_paths - malformed_cve_paths }
 
     context "when a block is given" do
       it "must yield CVE objects "do
@@ -19,12 +25,46 @@ RSpec.shared_examples "CVE methods" do
       end
     end
 
-    it "must load CVE objects from the CVE-*.json files in the repository" do
-      expect(subject.each.map(&:path)).to match_array(cve_paths)
+    it "must find the valid CVE-*.json files in the repository" do
+      expect(subject.each.map(&:path)).to match_array(valid_cve_paths)
+    end
+
+    it "must omit malformed CVEs" do
+      expect(subject.each.map(&:path)).to_not include(malformed_cve_paths)
     end
   end
 
   describe "#each_malformed" do
+    let(:malformed_cves) { %w[CVE-2021-2999.json CVE-2021-2998.json] }
+    let(:malformed_cve_paths) do
+      Dir[File.join(path,"{**/}{#{malformed_cves.join(',')}}")]
+    end
+
+    let(:cve_paths) { Dir[File.join(path,'{**/}CVE-*.json')] }
+    let(:valid_cve_paths) { cve_paths - malformed_cve_paths }
+
+    context "when a block is given" do
+      it "must yield MalformedCVE objects "do
+        results = []
+        subject.each_malformed { |cve| results << cve }
+
+        expect(results).to all(be_kind_of(MalformedCVE))
+      end
+    end
+
+    context "when no block is given" do
+      it "must return an Enumerator object" do
+        expect(subject.each_malformed).to be_kind_of(Enumerator)
+      end
+    end
+
+    it "must find the malformed CVE-*.json files in the repository" do
+      expect(subject.each_malformed.map(&:path)).to match_array(malformed_cve_paths)
+    end
+
+    it "must omit valid CVEs" do
+      expect(subject.each_malformed.map(&:path)).to_not include(valid_cve_paths)
+    end
   end
 
   describe "#has_cve?" do
