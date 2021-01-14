@@ -18,23 +18,23 @@ A Ruby library for parsing the CVE JSON in the [cvelist] git repository.
 
     require 'cvelist'
 
-* Cloning the [cvelist] repository:
+Cloning the [cvelist] repository:
 
-      repo = CVEList::Repository.clone
+    repo = CVEList::Repository.clone
 
-* Using an existing [cvelist] repository:
+Using an existing [cvelist] repository:
 
-      repo = CVEList::Repository.new('path/to/cvelist')
+    repo = CVEList::Repository.new('path/to/cvelist')
 
-* Updating an existing [cvelist] repository:
+Updating an existing [cvelist] repository:
 
-      repo.pull!
+    repo.pull!
 
-* Enumerating over every [CVE] in a repository:
+Enumerating over every [CVE] in a repository:
 
-      repo.each do |cve|
-        puts cve.id
-      end
+    repo.each do |cve|
+      puts cve.id
+    end
 
 ## Requirements
 
