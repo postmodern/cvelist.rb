@@ -86,14 +86,14 @@ module CVEList
     #
     # Determines if the repository contains a directory for the given year.
     #
-    # @param [String] year
+    # @param [#to_s] year
     #   The given year.
     #
     # @return [Boolean]
     #   Specifies whether the repository contains the directory for the year.
     #
     def has_year?(year)
-      directory?(year)
+      directory?(year.to_s)
     end
 
     #
@@ -130,7 +130,7 @@ module CVEList
     #
     # Requests a year directory from the repository.
     #
-    # @param [String] year_number
+    # @param [#to_s] year_number
     #   The given year number.
     #
     # @return [YearDir]
@@ -140,7 +140,7 @@ module CVEList
     #   There is no year directory within the repository for the given year.
     #
     def year(year_number)
-      year_dir = join(year_number)
+      year_dir = join(year_number.to_s)
 
       unless File.directory?(year_dir)
         raise(YearDirNotFound,"year #{year_number.inspect} not found within #{@path.inspect}")
