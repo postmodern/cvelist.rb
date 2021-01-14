@@ -59,13 +59,16 @@ module CVEList
       end
     end
 
+    # `Dir.glob` pattern for all CVE `.json` files.
+    GLOB = 'CVE-[0-9][0-9][0-9][0-9]-*.json'
+
     #
     # The JSON files within the range directory.
     #
     # @return [Array<String>]
     #
     def files
-      glob('CVE-[0-9][0-9][0-9][0-9]-*.json').sort
+      glob(GLOB).sort
     end
 
     #

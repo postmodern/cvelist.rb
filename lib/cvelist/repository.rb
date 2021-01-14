@@ -98,6 +98,9 @@ module CVEList
       directory?(year.to_s)
     end
 
+    # `Dir.glob` for year directories.
+    GLOB = '[1-2][0-9][0-9][0-9]'
+
     #
     # The year directories within the repository.
     #
@@ -105,7 +108,7 @@ module CVEList
     #   The paths to the year directories.
     #
     def directories
-      glob('[1-2][0-9][0-9][0-9]').sort
+      glob(GLOB).sort
     end
 
     #

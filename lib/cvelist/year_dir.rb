@@ -67,13 +67,16 @@ module CVEList
 
     alias / range
 
+    # `Dir.glob` pattern for `Nxxx` range directories.
+    GLOB = '*xxx'
+
     #
     # The `xxx` number ranges within the directory.
     #
     # @return [Array<String>]
     #
     def directories
-      glob('*xxx').sort
+      glob(GLOB).sort
     end
 
     #
