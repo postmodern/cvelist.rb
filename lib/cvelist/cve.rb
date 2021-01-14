@@ -2,6 +2,9 @@ require 'cve_schema/cve'
 require 'multi_json'
 
 module CVEList
+  #
+  # @see https://rubydoc.info/gems/cve_schema/CVESchema/CVE/frames
+  #
   class CVE < CVESchema::CVE
 
     # The path to the CVE JSON.
