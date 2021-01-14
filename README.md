@@ -40,6 +40,12 @@ Enumerating over every [CVE] in the repository:
       puts cve.id
     end
 
+Enumerating over every [CVE] in a certain year:
+
+    repo.year(2020).each do |cve|
+      puts cve.id
+    end
+
 ## Requirements
 
 * [multi_json] ~> 1.0
