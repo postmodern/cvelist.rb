@@ -89,7 +89,7 @@ module CVEList
     #
     def ranges(&block)
       range_dirs = directories.map do |dir|
-        yield RangeDir.new(dir)
+        RangeDir.new(dir)
       end
 
       range_dirs.each(&block) if block
