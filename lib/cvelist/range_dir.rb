@@ -111,7 +111,7 @@ module CVEList
       files.each do |cve_path|
         begin
           CVE.load(cve_path)
-        rescue CVE::InvalidJSON => error
+        rescue InvalidJSON => error
           yield MalformedCVE.new(cve_path,error)
         end
       end

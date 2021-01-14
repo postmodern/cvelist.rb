@@ -1,3 +1,4 @@
+require 'cvelist/exceptions'
 require 'cve_schema/cve'
 require 'multi_json'
 

@@ -1,3 +1,5 @@
+require 'cve_schema/exceptions'
+
 module CVEList
   # Base class for all git related exceptions.
   class GitError < RuntimeError
@@ -22,4 +24,8 @@ module CVEList
 
   class CVENotFound < NotFoundError
   end
+
+  InvalidJSON = CVESchema::InvalidJSON
+  MissingJSONKey = CVESchema::MissingJSONKey
+  UnkownJSONValue = CVESchema::UnknownJSONValue
 end
