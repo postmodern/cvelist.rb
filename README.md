@@ -60,6 +60,10 @@ Enumerating over every [CVE] in a certain year:
 
     $ gem install cvelist
 
+### Gemfile
+
+    gem 'cvelist', '~> 0.1'
+
 ## Benchmark
 
     Warming up the disk cache with a first run. This may take a while ...
