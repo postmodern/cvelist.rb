@@ -20,14 +20,14 @@ describe YearDir do
     let(:xxx_range) { '1xxx' }
 
     it "must test whether the year directory contains the '*xxx' range dir" do
-      expect(subject.has_range?(xxx_range)).to eq(true)
+      expect(subject.has_range?(xxx_range)).to be(true)
     end
 
     context "when the year directory does not have the given '*xxx' range dir" do
       let(:xxx_range) { '9xxx' }
 
       it "must return false" do
-        expect(subject.has_range?(xxx_range)).to eq(false)
+        expect(subject.has_range?(xxx_range)).to be(false)
       end
     end
   end

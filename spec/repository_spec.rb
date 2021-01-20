@@ -129,7 +129,7 @@ describe Repository do
             'git', 'pull', remote, branch
           ).and_return(true)
 
-          expect(subject.pull!).to eq(true)
+          expect(subject.pull!).to be(true)
         end
       end
 
@@ -150,19 +150,19 @@ describe Repository do
       before { expect(subject).to receive(:git?).and_return(false) }
 
       it "must return false" do
-        expect(subject.pull!).to eq(false)
+        expect(subject.pull!).to be(false)
       end
     end
   end
 
   describe "#has_year?" do
     it "should test if a repository has a directory for the given year" do
-      expect(subject.has_year?('1999')).to eq(true)
+      expect(subject.has_year?('1999')).to be(true)
     end
 
     context "when the given year does not exist in the repository" do
       it "must return false" do
-        expect(subject.has_year?('3000')).to eq(false)
+        expect(subject.has_year?('3000')).to be(false)
       end
     end
   end

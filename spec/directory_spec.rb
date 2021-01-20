@@ -43,11 +43,11 @@ describe Directory do
     let(:name) { '.gitkeep' }
 
     it "must test whether the given path is a file within the directory" do
-      expect(subject.file?(name)).to eq(true)
+      expect(subject.file?(name)).to be(true)
     end
 
     context "when the given sub-directory does not exist" do
-      it { expect(subject.file?('foo')).to eq(false) }
+      it { expect(subject.file?('foo')).to be(false) }
     end
   end
 
@@ -55,11 +55,11 @@ describe Directory do
     let(:name) { '2000' }
 
     it "must test whether the given path is a directory within the directory" do
-      expect(subject.directory?(name)).to eq(true)
+      expect(subject.directory?(name)).to be(true)
     end
 
     context "when the given sub-directory does not exist" do
-      it { expect(subject.directory?('foo')).to eq(false) }
+      it { expect(subject.directory?('foo')).to be(false) }
     end
   end
 

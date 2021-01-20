@@ -71,14 +71,14 @@ RSpec.shared_examples "CVE methods" do
     let(:cve_id) { 'CVE-2021-2001' }
 
     it "must find the .json file with the matching CVE ID in the repository" do
-      expect(subject.has_cve?(cve_id)).to eq(true)
+      expect(subject.has_cve?(cve_id)).to be(true)
     end
 
     context "when the given .json file cannot be found" do
       let(:cve_id) { 'CVE-2021-2010' }
 
       it "must return false" do
-        expect(subject.has_cve?(cve_id)).to eq(false)
+        expect(subject.has_cve?(cve_id)).to be(false)
       end
     end
   end
@@ -107,7 +107,7 @@ RSpec.shared_examples "CVE methods" do
       let(:cve_id) { 'CVE-3000-1234' }
 
       it "must return nil" do
-        expect(subject).to eq(nil)
+        expect(subject).to be(nil)
       end
     end
 
@@ -115,7 +115,7 @@ RSpec.shared_examples "CVE methods" do
       let(:cve_id) { 'CVE-2021-9999' }
 
       it "must return nil" do
-        expect(subject).to eq(nil)
+        expect(subject).to be(nil)
       end
     end
 
@@ -123,7 +123,7 @@ RSpec.shared_examples "CVE methods" do
       let(:cve_id) { 'CVE-2021-2010' }
 
       it "must return nil" do
-        expect(subject).to eq(nil)
+        expect(subject).to be(nil)
       end
     end
   end
