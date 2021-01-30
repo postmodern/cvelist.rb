@@ -1,4 +1,6 @@
 require 'rspec'
-require 'cvelist/version'
+require 'simplecov'
+SimpleCov.start
 
+require 'cvelist/version'
 include CVEList
