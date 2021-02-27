@@ -1,6 +1,7 @@
 # cvelist
 
 [![CI](https://github.com/postmodern/cvelist.rb/actions/workflows/ruby.yml/badge.svg)](https://github.com/postmodern/cvelist.rb/actions/workflows/ruby.yml)
+[![Code Climate](https://codeclimate.com/github/postmodern/cvelist.rb.svg)](https://codeclimate.com/github/postmodern/cvelist.rb)
 
 * [Homepage](https://github.com/postmodern/cvelist.rb#readme)
 * [Issues](https://github.com/postmodern/cvelist.rb/issues)
