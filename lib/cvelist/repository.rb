@@ -69,7 +69,7 @@ module CVEList
     #   Returns `false` if the repository is not a git repository.
     #
     # @raise [PullFailedError]
-    #   The `git pull` command faild.
+    #   The `git pull` command failed.
     #
     def pull!(remote: REMOTE, branch: BRANCH)
       return false unless git?

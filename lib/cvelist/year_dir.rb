@@ -154,7 +154,7 @@ module CVEList
     #   The CVE ID.
     #
     # @return [CVE, nil]
-    #   The loaded CVE or `nil` if the accompaning range directory for the CVE
+    #   The loaded CVE or `nil` if the accompanying range directory for the CVE
     #   could not be found.
     #
     def [](cve_id)

@@ -32,7 +32,7 @@ module CVEList
     end
 
     #
-    # Determines whether the directory has the givne file.
+    # Determines whether the directory has the given file.
     #
     # @param [String] name
     #
