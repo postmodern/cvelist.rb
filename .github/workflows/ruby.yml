@@ -13,7 +13,7 @@ jobs:
           # - 2.5
           # - 2.6
           - 2.7
-          - 3.0
+          - '3.0'
           # TODO: uncomment when jruby supports ruby >= 2.7
           # - jruby
     name: Ruby ${{ matrix.ruby }}
