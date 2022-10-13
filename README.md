@@ -19,39 +19,55 @@ A Ruby library for parsing the CVE JSON in the [cvelist] git repository.
 
 ## Examples
 
-    require 'cvelist'
+```ruby
+require 'cvelist'
+```
 
 Cloning the [cvelist] repository:
 
-    repo = CVEList::Repository.clone('path/to/cvelist')
+```ruby
+repo = CVEList::Repository.clone('path/to/cvelist')
+```
 
 Using an existing [cvelist] repository:
 
-    repo = CVEList::Repository.new('path/to/cvelist')
+```ruby
+repo = CVEList::Repository.new('path/to/cvelist')
+```
 
 Updating an existing [cvelist] repository:
 
-    repo.pull!
+```ruby
+repo.pull!
+```
 
 Get the total number of CVEs in the repository:
 
-    repo.size
+```ruby
+repo.size
+```
 
 Access an individual [CVE] in the repository:
 
-    repo['CVE-2020-0001']
+```ruby
+repo['CVE-2020-0001']
+```
 
 Enumerating over every [CVE] in the repository:
 
-    repo.each do |cve|
-      puts cve.id
-    end
+```ruby
+repo.each do |cve|
+  puts cve.id
+end
+```
 
 Enumerating over every [CVE] in a certain year:
 
-    repo.year(2020).each do |cve|
-      puts cve.id
-    end
+```ruby
+repo.year(2020).each do |cve|
+  puts cve.id
+end
+```
 
 ## Requirements
 
@@ -60,11 +76,15 @@ Enumerating over every [CVE] in a certain year:
 
 ## Install
 
-    $ gem install cvelist
+```shell
+$ gem install cvelist
+```
 
 ### Gemfile
 
-    gem 'cvelist', '~> 0.1'
+```ruby
+gem 'cvelist', '~> 0.1'
+```
 
 ## Benchmark
 
